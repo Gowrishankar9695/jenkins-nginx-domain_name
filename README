@@ -1,0 +1,38 @@
+-  Change to super user
+          sudo su
+
+-  To Install Jenkins follow the steps 
+        1. Create a file jenkins.sh and copy the contents from git_repo: jenkins-nginx-domain_name/jenkins.sh
+              sudo vi jenkins.sh
+        2. Modify the permission and execute the shell script
+              sudo chmod +x jenkins.sh
+              ./jenkins.sh
+
+- To get a Free Domain (publicvm.com via FreeDomain.one)
+        1. Go to: https://freedomain.one/
+        2. Sign up and register a subdomain under publicvm.com, e.g., jenkinstest.publicvm.com
+        3. Set the A record of jenkinstest.publicvm.com to your EC2 instance public IPv4 address.
+              Host/A Record/ Sub Domain
+                          Host Name: _________.jenkinstest.publicvm.com        ----- Assign a name (ex: myjenkins.jenkinstest.publicvm.com)
+                          IP is    : ☐ Dynamic  ☑ Static                    ----- Check any one box
+                          TTL      : ___ Hrs ___ mins                          ----- Choose required duration
+                          IP       : ___.___.___.___                           ----- Add public IP of Instance (IPv4 or IPv6)
+
+-  To Install Nginx follow the steps  
+        1. Create a file nginx.sh and copy the contents from git_repo: jenkins-nginx-domain_name/nginx.sh
+              sudo vi nginx.sh
+        2. Modify the permission and execute the shell script
+              sudo chmod +x nginx.sh
+              ./nginx.sh
+
+-  To assign name to public IP
+        1. RCreate a file Public_IP.sh and copy the contents from git_repo: jenkins-nginx-domain_name/Public_IP.sh
+              sudo vi Public_IP.sh
+        2. Modify the permission and execute the shell script
+              sudo chmod +x Public_IP.sh
+              ./Public_IP.sh
+
+- Then open: "http://myjenkins.jenkinstest.publicvm.com" in the browser
+- To get your Jenkins initial admin password
+        1. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+        2. copy the password and paste in the jenkins page
